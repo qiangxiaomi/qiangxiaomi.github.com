@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<style type="text/css">
+
+		body {
+
+			background-image: url(image/bg.png);
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			background-color: #464646;
+		}
+		#button{
+			background-image: url(image/button1.png);
+			width: 240px;
+			height: 130px;
+			/*position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin:  auto;*/
+			margin-top: 500px;
+			margin-left: auto;
+			margin-right: auto;
+			background-color: #33a262;
+
+		}
+	</style>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+
+			var button = document.getElementById("button");
+			var EventUtil = {
+
+				addHandler: function(element,type,handler){
+					if(element.addEventListener){
+						element.addEventListener(type,handler,false);
+					}else if(element.attachEvent){
+						element.attachEvent("on"+type,handler);
+					}else{
+						element["on"+type] = handler;
+					}
+				}
+			};
+
+            var btn = document.getElementById("button");
+            var handler = function(){
+            	alert("敬请期待");
+            };
+            
+            EventUtil.addHandler(btn,'click',handler);
+			/*button.addEventListener('click',function(event){
+
+				alert("敬请期待");
+			},false);*/
+		}
+	</script>
+</head>
+<body>
+	<div id = "button">
+		
+	</div>
+</body>
+</html>
